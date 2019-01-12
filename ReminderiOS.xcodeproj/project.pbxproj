@@ -14,6 +14,7 @@
 		C57A88BB21E9C07C00A2B035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B921E9C07C00A2B035 /* LaunchScreen.storyboard */; };
 		C57A88C621E9C07C00A2B035 /* ReminderiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88C521E9C07C00A2B035 /* ReminderiOSTests.swift */; };
 		C57A88D121E9C07C00A2B035 /* ReminderiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88D021E9C07C00A2B035 /* ReminderiOSUITests.swift */; };
+		C57A88E021E9C4EB00A2B035 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57A88DF21E9C4EB00A2B035 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C57A88CC21E9C07C00A2B035 /* ReminderiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57A88D021E9C07C00A2B035 /* ReminderiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderiOSUITests.swift; sourceTree = "<group>"; };
 		C57A88D221E9C07C00A2B035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C57A88DF21E9C4EB00A2B035 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57A88E021E9C4EB00A2B035 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				C57A88C421E9C07C00A2B035 /* ReminderiOSTests */,
 				C57A88CF21E9C07C00A2B035 /* ReminderiOSUITests */,
 				C57A88AE21E9C07A00A2B035 /* Products */,
+				C57A88DE21E9C4EA00A2B035 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +101,8 @@
 		C57A88AF21E9C07A00A2B035 /* ReminderiOS */ = {
 			isa = PBXGroup;
 			children = (
+				C57A88E221E9C5E000A2B035 /* View */,
 				C57A88B021E9C07A00A2B035 /* AppDelegate.swift */,
-				C57A88B221E9C07A00A2B035 /* ViewController.swift */,
-				C57A88B421E9C07A00A2B035 /* Main.storyboard */,
 				C57A88B721E9C07C00A2B035 /* Assets.xcassets */,
 				C57A88B921E9C07C00A2B035 /* LaunchScreen.storyboard */,
 				C57A88BC21E9C07C00A2B035 /* Info.plist */,
@@ -125,6 +128,23 @@
 			path = ReminderiOSUITests;
 			sourceTree = "<group>";
 		};
+		C57A88DE21E9C4EA00A2B035 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C57A88DF21E9C4EB00A2B035 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C57A88E221E9C5E000A2B035 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C57A88B221E9C07A00A2B035 /* ViewController.swift */,
+				C57A88B421E9C07A00A2B035 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +155,7 @@
 				C57A88A921E9C07A00A2B035 /* Sources */,
 				C57A88AA21E9C07A00A2B035 /* Frameworks */,
 				C57A88AB21E9C07A00A2B035 /* Resources */,
+				C57A88E121E9C4F700A2B035 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,6 +271,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C57A88E121E9C4F700A2B035 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C57A88A921E9C07A00A2B035 /* Sources */ = {
@@ -433,6 +475,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReminderiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +496,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReminderiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
