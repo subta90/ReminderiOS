@@ -1,0 +1,20 @@
+# Xcode
+build/
+*.pxbuser
+!default.pbxuser
+*.modelv3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# others
+*.swp
+!.gitkeep
+.DS_Store
