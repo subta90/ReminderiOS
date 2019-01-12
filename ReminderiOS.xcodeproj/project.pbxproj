@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C562077121E9CB0B00C22F43 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */; };
+		C562077321E9CB1A00C22F43 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */; };
 		C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B021E9C07A00A2B035 /* AppDelegate.swift */; };
-		C57A88B321E9C07A00A2B035 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B221E9C07A00A2B035 /* ViewController.swift */; };
+		C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */; };
 		C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B421E9C07A00A2B035 /* Main.storyboard */; };
 		C57A88B821E9C07C00A2B035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B721E9C07C00A2B035 /* Assets.xcassets */; };
 		C57A88BB21E9C07C00A2B035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B921E9C07C00A2B035 /* LaunchScreen.storyboard */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		C57A88AD21E9C07A00A2B035 /* ReminderiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57A88B021E9C07A00A2B035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C57A88B221E9C07A00A2B035 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		C57A88B521E9C07A00A2B035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C57A88B721E9C07C00A2B035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C57A88BA21E9C07C00A2B035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -139,8 +143,10 @@
 		C57A88E221E9C5E000A2B035 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C57A88B221E9C07A00A2B035 /* ViewController.swift */,
+				C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */,
 				C57A88B421E9C07A00A2B035 /* Main.storyboard */,
+				C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */,
+				C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 			files = (
 				C57A88BB21E9C07C00A2B035 /* LaunchScreen.storyboard in Resources */,
 				C57A88B821E9C07C00A2B035 /* Assets.xcassets in Resources */,
+				C562077321E9CB1A00C22F43 /* MainTableViewCell.xib in Resources */,
 				C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C57A88B321E9C07A00A2B035 /* ViewController.swift in Sources */,
+				C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */,
+				C562077121E9CB0B00C22F43 /* MainTableViewCell.swift in Sources */,
 				C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
