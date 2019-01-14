@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C522D7A221EC65E9006646C5 /* MainTableViewCellEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522D7A121EC65E9006646C5 /* MainTableViewCellEntityTests.swift */; };
+		C522D7AD21EC6BCC006646C5 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C522D7AC21EC6BCC006646C5 /* Nimble.framework */; };
+		C522D7AF21EC6BDB006646C5 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C522D7AE21EC6BDA006646C5 /* Quick.framework */; };
+		C522D7B021EC6BEA006646C5 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C522D7AE21EC6BDA006646C5 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C522D7B121EC6BEE006646C5 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C522D7AC21EC6BCC006646C5 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C562077121E9CB0B00C22F43 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */; };
 		C562077321E9CB1A00C22F43 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */; };
 		C562077521E9D64200C22F43 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C562077421E9D64200C22F43 /* RxCocoa.framework */; };
@@ -18,7 +23,6 @@
 		C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B421E9C07A00A2B035 /* Main.storyboard */; };
 		C57A88B821E9C07C00A2B035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B721E9C07C00A2B035 /* Assets.xcassets */; };
 		C57A88BB21E9C07C00A2B035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B921E9C07C00A2B035 /* LaunchScreen.storyboard */; };
-		C57A88C621E9C07C00A2B035 /* ReminderiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88C521E9C07C00A2B035 /* ReminderiOSTests.swift */; };
 		C57A88D121E9C07C00A2B035 /* ReminderiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88D021E9C07C00A2B035 /* ReminderiOSUITests.swift */; };
 		C57A88E021E9C4EB00A2B035 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57A88DF21E9C4EB00A2B035 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
@@ -40,7 +44,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C522D7A721EC6A79006646C5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C522D7B121EC6BEE006646C5 /* Nimble.framework in CopyFiles */,
+				C522D7B021EC6BEA006646C5 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C522D7A121EC65E9006646C5 /* MainTableViewCellEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTableViewCellEntityTests.swift; path = ReminderiOSTests/Model/MainTableViewCellEntityTests.swift; sourceTree = SOURCE_ROOT; };
+		C522D7AC21EC6BCC006646C5 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		C522D7AE21EC6BDA006646C5 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		C562077421E9D64200C22F43 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -55,7 +76,6 @@
 		C57A88BA21E9C07C00A2B035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C57A88BC21E9C07C00A2B035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C57A88C121E9C07C00A2B035 /* ReminderiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C57A88C521E9C07C00A2B035 /* ReminderiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderiOSTests.swift; sourceTree = "<group>"; };
 		C57A88C721E9C07C00A2B035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C57A88CC21E9C07C00A2B035 /* ReminderiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57A88D021E9C07C00A2B035 /* ReminderiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderiOSUITests.swift; sourceTree = "<group>"; };
@@ -77,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C522D7AF21EC6BDB006646C5 /* Quick.framework in Frameworks */,
+				C522D7AD21EC6BCC006646C5 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C522D7A021EC6594006646C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C522D7A121EC65E9006646C5 /* MainTableViewCellEntityTests.swift */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		C562077621EB3C3400C22F43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +166,7 @@
 		C57A88C421E9C07C00A2B035 /* ReminderiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				C57A88C521E9C07C00A2B035 /* ReminderiOSTests.swift */,
+				C522D7A021EC6594006646C5 /* Model */,
 				C57A88C721E9C07C00A2B035 /* Info.plist */,
 			);
 			path = ReminderiOSTests;
@@ -153,6 +184,8 @@
 		C57A88DE21E9C4EA00A2B035 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C522D7AE21EC6BDA006646C5 /* Quick.framework */,
+				C522D7AC21EC6BCC006646C5 /* Nimble.framework */,
 				C562077421E9D64200C22F43 /* RxCocoa.framework */,
 				C57A88DF21E9C4EB00A2B035 /* RxSwift.framework */,
 			);
@@ -200,6 +233,7 @@
 				C57A88BD21E9C07C00A2B035 /* Sources */,
 				C57A88BE21E9C07C00A2B035 /* Frameworks */,
 				C57A88BF21E9C07C00A2B035 /* Resources */,
+				C522D7A721EC6A79006646C5 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -340,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C57A88C621E9C07C00A2B035 /* ReminderiOSTests.swift in Sources */,
+				C522D7A221EC65E9006646C5 /* MainTableViewCellEntityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +585,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReminderiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,6 +609,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReminderiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
