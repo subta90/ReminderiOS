@@ -7,9 +7,38 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MainTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var hogeLabel: UILabel!
-    @IBOutlet weak var fugaLabel: UILabel!
+    // MARK: Property
+    
+    @IBOutlet weak var remindInputField: UITextField!
+    
+    @IBOutlet weak var remindInfoButton: UIButton!
+    
+    var entity: MainTableViewCellEntity = MainTableViewCellEntity()
+     
+    var infoRelay = BehaviorRelay<MainTableViewCellEntity?>(value: nil)
+    
+    private let disposeBag = DisposeBag()
+    
+    // MARK: Life Cycle
+    
+    override func awakeFromNib() {
+        remindInputField.rx.text.orEmpty.asDriver()
+            .drive(onNext: { [ unowned self ] text in
+                self.remindInfoButton.isHidden = !(text.count > 0)
+                self.entity.message = text
+                print("count: \(text.count)")
+            })
+            .disposed(by: disposeBag)
+        remindInfoButton.rx.tap.asDriver()
+            .drive(onNext: { [ unowned self ] _ in
+                self.infoRelay.accept(self.entity)
+            })
+            .disposed(by: disposeBag)
+    }
+    
 }

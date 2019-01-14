@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C562077121E9CB0B00C22F43 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */; };
 		C562077321E9CB1A00C22F43 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */; };
+		C562077521E9D64200C22F43 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C562077421E9D64200C22F43 /* RxCocoa.framework */; };
+		C562077821EB3C5A00C22F43 /* MainTableViewCellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C562077721EB3C5A00C22F43 /* MainTableViewCellEntity.swift */; };
+		C562077A21EB420400C22F43 /* RemindDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C562077921EB420400C22F43 /* RemindDetailViewController.xib */; };
+		C562077C21EB425000C22F43 /* RemindDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C562077B21EB425000C22F43 /* RemindDetailViewController.swift */; };
 		C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B021E9C07A00A2B035 /* AppDelegate.swift */; };
 		C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */; };
 		C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B421E9C07A00A2B035 /* Main.storyboard */; };
@@ -39,6 +43,10 @@
 /* Begin PBXFileReference section */
 		C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		C562077421E9D64200C22F43 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		C562077721EB3C5A00C22F43 /* MainTableViewCellEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCellEntity.swift; sourceTree = "<group>"; };
+		C562077921EB420400C22F43 /* RemindDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindDetailViewController.xib; sourceTree = "<group>"; };
+		C562077B21EB425000C22F43 /* RemindDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDetailViewController.swift; sourceTree = "<group>"; };
 		C57A88AD21E9C07A00A2B035 /* ReminderiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57A88B021E9C07A00A2B035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C562077521E9D64200C22F43 /* RxCocoa.framework in Frameworks */,
 				C57A88E021E9C4EB00A2B035 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C562077621EB3C3400C22F43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C562077721EB3C5A00C22F43 /* MainTableViewCellEntity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C57A88A421E9C07A00A2B035 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +122,7 @@
 		C57A88AF21E9C07A00A2B035 /* ReminderiOS */ = {
 			isa = PBXGroup;
 			children = (
+				C562077621EB3C3400C22F43 /* Model */,
 				C57A88E221E9C5E000A2B035 /* View */,
 				C57A88B021E9C07A00A2B035 /* AppDelegate.swift */,
 				C57A88B721E9C07C00A2B035 /* Assets.xcassets */,
@@ -135,6 +153,7 @@
 		C57A88DE21E9C4EA00A2B035 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C562077421E9D64200C22F43 /* RxCocoa.framework */,
 				C57A88DF21E9C4EB00A2B035 /* RxSwift.framework */,
 			);
 			name = Frameworks;
@@ -147,6 +166,8 @@
 				C57A88B421E9C07A00A2B035 /* Main.storyboard */,
 				C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */,
 				C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */,
+				C562077B21EB425000C22F43 /* RemindDetailViewController.swift */,
+				C562077921EB420400C22F43 /* RemindDetailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C562077A21EB420400C22F43 /* RemindDetailViewController.xib in Resources */,
 				C57A88BB21E9C07C00A2B035 /* LaunchScreen.storyboard in Resources */,
 				C57A88B821E9C07C00A2B035 /* Assets.xcassets in Resources */,
 				C562077321E9CB1A00C22F43 /* MainTableViewCell.xib in Resources */,
@@ -289,6 +311,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -306,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */,
+				C562077821EB3C5A00C22F43 /* MainTableViewCellEntity.swift in Sources */,
+				C562077C21EB425000C22F43 /* RemindDetailViewController.swift in Sources */,
 				C562077121E9CB0B00C22F43 /* MainTableViewCell.swift in Sources */,
 				C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */,
 			);

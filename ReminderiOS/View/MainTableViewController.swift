@@ -14,6 +14,7 @@ class MainTableViewController: UIViewController {
     // MARK: Constants
     let cellIdentifier = "MainTableViewCell"
     
+    private let disposeBag = DisposeBag()
     
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +25,9 @@ class MainTableViewController: UIViewController {
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        
     }
 }
 
@@ -38,6 +42,18 @@ extension MainTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainTableViewCell
+        
+        cell.infoRelay.asDriver().drive( onNext: { [ unowned self ] value in
+            
+            guard value != nil else {
+                return
+            }
+          
+            let detailViewController = UINib(nibName: "RemindDetailViewController", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIViewController
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+            
+        }).disposed(by: disposeBag)
+        
         return cell
     }
 }

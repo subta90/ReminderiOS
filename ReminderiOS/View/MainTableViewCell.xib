@@ -18,26 +18,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hoge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBk-Hu-5Fn">
-                        <rect key="frame" x="16" y="11" width="42" height="21"/>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wL8-5T-vVf">
+                        <rect key="frame" x="16" y="6" width="324" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2s-6y-Ms3">
-                        <rect key="frame" x="321" y="11" width="38" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVE-CD-m3x">
+                        <rect key="frame" x="348" y="11" width="22" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="fugaLabel" destination="E2s-6y-Ms3" id="3JV-w7-pCb"/>
-                <outlet property="hogeLabel" destination="aBk-Hu-5Fn" id="iHF-SA-u4I"/>
+                <outlet property="remindInfoButton" destination="gVE-CD-m3x" id="NfO-mm-K9M"/>
+                <outlet property="remindInputField" destination="wL8-5T-vVf" id="EgJ-3A-LPD"/>
             </connections>
+            <point key="canvasLocation" x="148" y="93.553223388305852"/>
         </tableViewCell>
     </objects>
 </document>
