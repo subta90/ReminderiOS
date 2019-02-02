@@ -16,7 +16,7 @@ class MainTableViewCellEntityTests: QuickSpec {
         describe("setMessage") {
             it("messageの初期値は空文字") {
                 let entity = MainTableViewCellEntity()
-                expect(entity.message).to(beEmpty())
+                expect(entity.message).to(beNil())
             }
         }
     }

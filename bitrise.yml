@@ -54,6 +54,7 @@ workflows:
         - channel: "#general"
         - text: ReminderiOS build result
         - emoji: ":innocent:"
+        - emoji_on_error: ":rage:"
         - webhook_url: "$SLACK_WEBHOOK_URL"
 app:
   envs:
