@@ -43,16 +43,12 @@ extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainTableViewCell
         
-        cell.infoRelay.asDriver().drive( onNext: { [ unowned self ] value in
-            
-            guard value != nil else {
-                return
-            }
-          
-            let detailViewController = UINib(nibName: "RemindDetailViewController", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIViewController
+        cell.infoRelay.subscribe( onNext: { [unowned self ] value in
+            let detailViewController = UINib(nibName: "RemindDetailViewController",
+                                             bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIViewController
             self.navigationController?.pushViewController(detailViewController, animated: true)
-            
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
         
         return cell
     }

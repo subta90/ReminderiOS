@@ -19,8 +19,8 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var remindInfoButton: UIButton!
     
     var entity: MainTableViewCellEntity = MainTableViewCellEntity()
-     
-    var infoRelay = BehaviorRelay<MainTableViewCellEntity?>(value: nil)
+    
+    var infoRelay = PublishRelay<MainTableViewCellEntity>()
     
     private let disposeBag = DisposeBag()
     
