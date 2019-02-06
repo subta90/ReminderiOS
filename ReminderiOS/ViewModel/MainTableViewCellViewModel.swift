@@ -8,13 +8,20 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
 final class MainTableViewCellViewModel {
     
-    let inputText: ControlProperty<String?>
+    let inputText: ControlProperty<String>
     
-    init(inputText: ControlProperty<String?>) {
+    let isInfoButtonHidden: Observable<Bool>
+    
+    init(inputText: ControlProperty<String>, model: MainTableViewCellModel) {
+        
         self.inputText = inputText
+        
+        self.isInfoButtonHidden = inputText.map { text in
+            return model.isInfoButtonHidden(text: text)
+        }
     }
-    
 }

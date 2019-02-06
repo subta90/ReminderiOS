@@ -20,9 +20,12 @@ class MainTableViewCell: UITableViewCell {
     
     var entity: MainTableViewCellEntity = MainTableViewCellEntity()
     
-    var infoRelay = PublishRelay<MainTableViewCellEntity>()
+    let infoButtonTappedRelay = PublishRelay<MainTableViewCellEntity>()
+    let outOfFocusRelay = PublishRelay<MainTableViewCellEntity>()
     
-    private lazy var viewModel = MainTableViewCellViewModel(inputText: remindInputField.rx.text)
+    let model = MainTableViewCellModel()
+    
+    private lazy var viewModel = MainTableViewCellViewModel(inputText: remindInputField.rx.text.orEmpty, model: model)
     
     private let disposeBag = DisposeBag()
     
@@ -30,15 +33,26 @@ class MainTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         viewModel.inputText.asDriver()
-            .drive(onNext: { [unowned self ] text in
-                self.remindInfoButton.isHidden = !(text?.count ?? 0 > 0)
+            .drive(onNext: { [ unowned self ] text in
                 self.entity.message = text
             })
         .disposed(by: disposeBag)
         
+        viewModel.isInfoButtonHidden.asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [ unowned self ] hidden in
+                self.remindInfoButton.isHidden = hidden
+            })
+        .disposed(by: disposeBag)
+        
+        remindInputField.rx.controlEvent(.editingDidEnd).asDriver()
+            .drive(onNext: { [ unowned self ] text in
+                self.outOfFocusRelay.accept(self.entity)
+            })
+            .disposed(by: disposeBag)
+        
         remindInfoButton.rx.tap.asDriver()
             .drive(onNext: { [ unowned self ] _ in
-                self.infoRelay.accept(self.entity)
+                self.infoButtonTappedRelay.accept(self.entity)
             })
             .disposed(by: disposeBag)
     }
