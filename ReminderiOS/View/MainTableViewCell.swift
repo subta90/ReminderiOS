@@ -14,26 +14,28 @@ class MainTableViewCell: UITableViewCell {
     
     // MARK: Property
     
-    @IBOutlet weak var remindInputField: UITextField!
+    @IBOutlet private weak var remindInputField: UITextField!
     
-    @IBOutlet weak var remindInfoButton: UIButton!
+    @IBOutlet private weak var remindInfoButton: UIButton!
     
     var entity: MainTableViewCellEntity = MainTableViewCellEntity()
     
     var infoRelay = PublishRelay<MainTableViewCellEntity>()
+    
+    private lazy var viewModel = MainTableViewCellViewModel(inputText: remindInputField.rx.text)
     
     private let disposeBag = DisposeBag()
     
     // MARK: Life Cycle
     
     override func awakeFromNib() {
-        remindInputField.rx.text.orEmpty.asDriver()
-            .drive(onNext: { [ unowned self ] text in
-                self.remindInfoButton.isHidden = !(text.count > 0)
+        viewModel.inputText.asDriver()
+            .drive(onNext: { [unowned self ] text in
+                self.remindInfoButton.isHidden = !(text?.count ?? 0 > 0)
                 self.entity.message = text
-                print("count: \(text.count)")
             })
-            .disposed(by: disposeBag)
+        .disposed(by: disposeBag)
+        
         remindInfoButton.rx.tap.asDriver()
             .drive(onNext: { [ unowned self ] _ in
                 self.infoRelay.accept(self.entity)
