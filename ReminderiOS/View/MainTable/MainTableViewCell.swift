@@ -14,29 +14,22 @@ class MainTableViewCell: UITableViewCell {
     
     // MARK: Property
     
-    @IBOutlet private weak var remindInputField: UITextField!
+    @IBOutlet weak var remindInputField: UITextField!
     
     @IBOutlet private weak var remindInfoButton: UIButton!
-    
-    var entity: MainTableViewCellEntity = MainTableViewCellEntity()
     
     let infoButtonTappedRelay = PublishRelay<MainTableViewCellEntity>()
     let outOfFocusRelay = PublishRelay<MainTableViewCellEntity>()
     
     let model = MainTableViewCellModel()
     
-    private lazy var viewModel = MainTableViewCellViewModel(inputText: remindInputField.rx.text.orEmpty, model: model)
+    private lazy var viewModel = MainTableViewCellViewModel(inputText: remindInputField.rx.text.orEmpty.asObservable(), model: model)
     
     private let disposeBag = DisposeBag()
     
     // MARK: Life Cycle
     
     override func awakeFromNib() {
-        viewModel.inputText.asDriver()
-            .drive(onNext: { [ unowned self ] text in
-                self.entity.message = text
-            })
-        .disposed(by: disposeBag)
         
         viewModel.isInfoButtonHidden.asDriver(onErrorJustReturn: false)
             .drive(onNext: { [ unowned self ] hidden in
@@ -46,13 +39,15 @@ class MainTableViewCell: UITableViewCell {
         
         remindInputField.rx.controlEvent(.editingDidEnd).asDriver()
             .drive(onNext: { [ unowned self ] text in
-                self.outOfFocusRelay.accept(self.entity)
+                let entity = MainTableViewCellEntity(message: self.remindInputField.text)
+                self.outOfFocusRelay.accept(entity)
             })
             .disposed(by: disposeBag)
         
         remindInfoButton.rx.tap.asDriver()
             .drive(onNext: { [ unowned self ] _ in
-                self.infoButtonTappedRelay.accept(self.entity)
+                let entity = MainTableViewCellEntity(message: self.remindInputField.text)
+                self.infoButtonTappedRelay.accept(entity)
             })
             .disposed(by: disposeBag)
     }

@@ -15,7 +15,7 @@ struct MainTableViewCellEntity {
         message = ""
     }
     
-    init(message: String) {
+    init(message: String?) {
         self.message = message
     }
 }

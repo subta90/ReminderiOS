@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RxCocoa
 import RxSwift
 
 class MainTableViewController: UIViewController {
     
     // MARK: Constants
     let cellIdentifier = "MainTableViewCell"
+    let detailViewName = "RemindDetailViewController"
     
     private let disposeBag = DisposeBag()
         
@@ -25,9 +27,6 @@ class MainTableViewController: UIViewController {
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        
     }
 }
 
@@ -44,8 +43,18 @@ extension MainTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainTableViewCell
         
         cell.infoButtonTappedRelay.subscribe( onNext: { [ unowned self ] value in
-            let detailViewController = UINib(nibName: "RemindDetailViewController",
-                                             bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIViewController
+            let detailViewController = UINib(nibName: self.detailViewName,
+                                             bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! RemindDetailViewController
+            
+            detailViewController.beginObserveToModel(model: Driver.of(value))
+            
+            // TODO: 直接監視するのではなくDetailViewControllerがviewModel.modelの変更を監視して、
+            // Detail -> MainにRelayしてやる方が良いだろうか
+            detailViewController.viewModel.model.drive(onNext: { model in
+                cell.remindInputField.text = model.message
+            })
+            .disposed(by: self.disposeBag)
+            
             self.navigationController?.pushViewController(detailViewController, animated: true)
         })
         .disposed(by: disposeBag)

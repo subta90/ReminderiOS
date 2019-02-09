@@ -19,7 +19,11 @@
 		C562077A21EB420400C22F43 /* RemindDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C562077921EB420400C22F43 /* RemindDetailViewController.xib */; };
 		C562077C21EB425000C22F43 /* RemindDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C562077B21EB425000C22F43 /* RemindDetailViewController.swift */; };
 		C571775F220EA42A00E351DD /* MainTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571775E220EA42A00E351DD /* MainTableViewCellModel.swift */; };
-		C5717762220EA45400E351DD /* MainTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5717761220EA45400E351DD /* MainTableViewCellViewModel.swift */; };
+		C571776A220EA87200E351DD /* RemindDetailViewMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5717769220EA87200E351DD /* RemindDetailViewMessageCell.xib */; };
+		C571776C220EA88A00E351DD /* RemindDetailViewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571776B220EA88A00E351DD /* RemindDetailViewMessageCell.swift */; };
+		C5717772220EAC7C00E351DD /* MainTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5717770220EAC7C00E351DD /* MainTableViewCellViewModel.swift */; };
+		C5717774220EAC9200E351DD /* RemindDetailViewMessageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5717773220EAC9200E351DD /* RemindDetailViewMessageCellViewModel.swift */; };
+		C5717776220EBA0B00E351DD /* RemindDetailViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5717775220EBA0B00E351DD /* RemindDetailViewControllerViewModel.swift */; };
 		C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B021E9C07A00A2B035 /* AppDelegate.swift */; };
 		C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */; };
 		C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B421E9C07A00A2B035 /* Main.storyboard */; };
@@ -71,7 +75,11 @@
 		C562077921EB420400C22F43 /* RemindDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindDetailViewController.xib; sourceTree = "<group>"; };
 		C562077B21EB425000C22F43 /* RemindDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDetailViewController.swift; sourceTree = "<group>"; };
 		C571775E220EA42A00E351DD /* MainTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCellModel.swift; sourceTree = "<group>"; };
-		C5717761220EA45400E351DD /* MainTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewCellViewModel.swift; path = ReminderiOS/ViewModel/MainTableViewCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		C5717769220EA87200E351DD /* RemindDetailViewMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindDetailViewMessageCell.xib; sourceTree = "<group>"; };
+		C571776B220EA88A00E351DD /* RemindDetailViewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDetailViewMessageCell.swift; sourceTree = "<group>"; };
+		C5717770220EAC7C00E351DD /* MainTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		C5717773220EAC9200E351DD /* RemindDetailViewMessageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDetailViewMessageCellViewModel.swift; sourceTree = "<group>"; };
+		C5717775220EBA0B00E351DD /* RemindDetailViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDetailViewControllerViewModel.swift; sourceTree = "<group>"; };
 		C57A88AD21E9C07A00A2B035 /* ReminderiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57A88B021E9C07A00A2B035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +136,8 @@
 		C562077621EB3C3400C22F43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C562077721EB3C5A00C22F43 /* MainTableViewCellEntity.swift */,
-				C571775E220EA42A00E351DD /* MainTableViewCellModel.swift */,
+				C5717768220EA55900E351DD /* RemindDetail */,
+				C5717767220EA54C00E351DD /* MainTable */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,11 +145,68 @@
 		C5717760220EA44200E351DD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C5717761220EA45400E351DD /* MainTableViewCellViewModel.swift */,
+				C571776F220EAC7C00E351DD /* MainTable */,
+				C5717771220EAC7C00E351DD /* RemindDetail */,
 			);
 			name = ViewModel;
 			path = "New Group";
 			sourceTree = "<group>";
+		};
+		C5717763220EA4EA00E351DD /* MainTable */ = {
+			isa = PBXGroup;
+			children = (
+				C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */,
+				C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */,
+				C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */,
+			);
+			path = MainTable;
+			sourceTree = "<group>";
+		};
+		C5717764220EA50A00E351DD /* RemindDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C562077B21EB425000C22F43 /* RemindDetailViewController.swift */,
+				C562077921EB420400C22F43 /* RemindDetailViewController.xib */,
+				C5717769220EA87200E351DD /* RemindDetailViewMessageCell.xib */,
+				C571776B220EA88A00E351DD /* RemindDetailViewMessageCell.swift */,
+			);
+			path = RemindDetail;
+			sourceTree = "<group>";
+		};
+		C5717767220EA54C00E351DD /* MainTable */ = {
+			isa = PBXGroup;
+			children = (
+				C562077721EB3C5A00C22F43 /* MainTableViewCellEntity.swift */,
+				C571775E220EA42A00E351DD /* MainTableViewCellModel.swift */,
+			);
+			path = MainTable;
+			sourceTree = "<group>";
+		};
+		C5717768220EA55900E351DD /* RemindDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RemindDetail;
+			sourceTree = "<group>";
+		};
+		C571776F220EAC7C00E351DD /* MainTable */ = {
+			isa = PBXGroup;
+			children = (
+				C5717770220EAC7C00E351DD /* MainTableViewCellViewModel.swift */,
+			);
+			name = MainTable;
+			path = ReminderiOS/ViewModel/MainTable;
+			sourceTree = SOURCE_ROOT;
+		};
+		C5717771220EAC7C00E351DD /* RemindDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C5717773220EAC9200E351DD /* RemindDetailViewMessageCellViewModel.swift */,
+				C5717775220EBA0B00E351DD /* RemindDetailViewControllerViewModel.swift */,
+			);
+			name = RemindDetail;
+			path = ReminderiOS/ViewModel/RemindDetail;
+			sourceTree = SOURCE_ROOT;
 		};
 		C57A88A421E9C07A00A2B035 = {
 			isa = PBXGroup;
@@ -210,12 +275,9 @@
 		C57A88E221E9C5E000A2B035 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */,
+				C5717764220EA50A00E351DD /* RemindDetail */,
+				C5717763220EA4EA00E351DD /* MainTable */,
 				C57A88B421E9C07A00A2B035 /* Main.storyboard */,
-				C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */,
-				C562077221E9CB1A00C22F43 /* MainTableViewCell.xib */,
-				C562077B21EB425000C22F43 /* RemindDetailViewController.swift */,
-				C562077921EB420400C22F43 /* RemindDetailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +392,7 @@
 				C57A88BB21E9C07C00A2B035 /* LaunchScreen.storyboard in Resources */,
 				C57A88B821E9C07C00A2B035 /* Assets.xcassets in Resources */,
 				C562077321E9CB1A00C22F43 /* MainTableViewCell.xib in Resources */,
+				C571776A220EA87200E351DD /* RemindDetailViewMessageCell.xib in Resources */,
 				C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,11 +441,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C571775F220EA42A00E351DD /* MainTableViewCellModel.swift in Sources */,
+				C5717776220EBA0B00E351DD /* RemindDetailViewControllerViewModel.swift in Sources */,
 				C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */,
-				C5717762220EA45400E351DD /* MainTableViewCellViewModel.swift in Sources */,
+				C5717774220EAC9200E351DD /* RemindDetailViewMessageCellViewModel.swift in Sources */,
+				C571776C220EA88A00E351DD /* RemindDetailViewMessageCell.swift in Sources */,
 				C562077821EB3C5A00C22F43 /* MainTableViewCellEntity.swift in Sources */,
 				C562077C21EB425000C22F43 /* RemindDetailViewController.swift in Sources */,
 				C562077121E9CB0B00C22F43 /* MainTableViewCell.swift in Sources */,
+				C5717772220EAC7C00E351DD /* MainTableViewCellViewModel.swift in Sources */,
 				C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
