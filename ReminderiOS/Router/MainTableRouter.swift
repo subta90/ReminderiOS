@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 
 protocol MainTableRouterProtocol: AnyObject {
-    func transitionToRemindDetail(model: Driver<MainTableCellModelProtocol>)
+    func transitionToRemindDetail(message: String?)
 }
 
 final class MainTableRouter: MainTableRouterProtocol {
@@ -23,11 +23,12 @@ final class MainTableRouter: MainTableRouterProtocol {
         self.viewController = viewController
     }
     
-    func transitionToRemindDetail(model: Driver<MainTableCellModelProtocol>) {
+    func transitionToRemindDetail(message: String?) {
         let detailViewController = UINib(nibName: detailViewName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! RemindDetailViewController
-        detailViewController.beginObserveToModel(model: model)
+        detailViewController.beginObserveToModel(message: message)
         
-        let viewModel = RemindDetaialViewControllerViewModel(model: model)
+        let model = RemindDetailModel(message: message)
+        let viewModel = RemindDetailViewModel(model: Driver.of(model))
         
         detailViewController.viewModel = viewModel
         

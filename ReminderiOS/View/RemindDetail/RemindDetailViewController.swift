@@ -21,7 +21,13 @@ class RemindDetailViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var viewModel = RemindDetaialViewControllerViewModel(model: Driver.of(MainTableCellModel(message: "")))
+    var viewModel = RemindDetailViewModel(model: Driver.of(RemindDetailModel(message: "")))
+    
+    private let modelChangedRelay = PublishRelay<RemindDetailModelProtocol>()
+    
+    var modelChangedObserve: Observable<RemindDetailModelProtocol> {
+        return modelChangedRelay.asObservable()
+    }
     
     private let disposeBag = DisposeBag()
     
@@ -31,8 +37,9 @@ class RemindDetailViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func beginObserveToModel(model: Driver<MainTableCellModelProtocol>) {
-        self.viewModel.model = model
+    func beginObserveToModel(message: String?) {
+        let model = RemindDetailModel(message: message)
+        self.viewModel = RemindDetailViewModel(model: Driver.of(model))
     }
 }
 
@@ -50,6 +57,12 @@ extension RemindDetailViewController: UITableViewDataSource {
                 cell.messageTextField.text = model.message
             })
                 .disposed(by: disposeBag)
+            
+            cell.messageObservable.subscribe({ [ unowned self ] value in
+                let model = RemindDetailModel(message: value.element!)
+                self.viewModel = RemindDetailViewModel(model: Driver.of(model))
+            })
+            .disposed(by: disposeBag)
             
             return cell
         default:

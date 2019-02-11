@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class RemindDetailViewMessageCellViewModel {
+final class RemindDetailMessageCellViewModel {
     
     let inputText: Observable<String>
     

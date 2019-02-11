@@ -15,9 +15,13 @@ final class RemindDetailViewMessageCell: UITableViewCell {
     // MARK: Property
     @IBOutlet weak var messageTextField: UITextField!
     
-    let messageRelay = PublishRelay<String?>()
+    private let messageRelay = PublishRelay<String?>()
     
-    private lazy var viewModel = RemindDetailViewMessageCellViewModel(inputText: messageTextField.rx.text.orEmpty.asObservable())
+    var messageObservable: Observable<String?> {
+        return messageRelay.asObservable()
+    }
+    
+    private lazy var viewModel = RemindDetailMessageCellViewModel(inputText: messageTextField.rx.text.orEmpty.asObservable())
     
     private let disposeBag = DisposeBag()
     

@@ -51,8 +51,8 @@ extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainTableViewCell
         
-        cell.infoButtonTappedObservable.subscribe( onNext: { [ unowned self ] value in
-            self.viewModel.didTappedInfoButton(model: Driver.of(value))
+        cell.infoButtonTappedObservable.subscribe( { [ unowned self ] value in
+            self.viewModel.didTappedInfoButton(message: value.element?.message)
         })
         .disposed(by: disposeBag)
         
