@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C522D7A221EC65E9006646C5 /* MainTableViewCellEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522D7A121EC65E9006646C5 /* MainTableViewCellEntityTests.swift */; };
 		C522D7AD21EC6BCC006646C5 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C522D7AC21EC6BCC006646C5 /* Nimble.framework */; };
 		C522D7AF21EC6BDB006646C5 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C522D7AE21EC6BDA006646C5 /* Quick.framework */; };
 		C522D7B021EC6BEA006646C5 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C522D7AE21EC6BDA006646C5 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -26,6 +25,7 @@
 		C57177822211258700E351DD /* MainTableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57177812211258700E351DD /* MainTableRouter.swift */; };
 		C57177852211395E00E351DD /* MainTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57177842211395E00E351DD /* MainTableCellViewModel.swift */; };
 		C571778722113B6700E351DD /* MainTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571778622113B6700E351DD /* MainTableCellModel.swift */; };
+		C571778A2211476B00E351DD /* MainTableCellModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57177892211476A00E351DD /* MainTableCellModelTests.swift */; };
 		C57A88B121E9C07A00A2B035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B021E9C07A00A2B035 /* AppDelegate.swift */; };
 		C57A88B321E9C07A00A2B035 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */; };
 		C57A88B621E9C07A00A2B035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57A88B421E9C07A00A2B035 /* Main.storyboard */; };
@@ -67,7 +67,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C522D7A121EC65E9006646C5 /* MainTableViewCellEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTableViewCellEntityTests.swift; path = ReminderiOSTests/Model/MainTableViewCellEntityTests.swift; sourceTree = SOURCE_ROOT; };
 		C522D7AC21EC6BCC006646C5 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		C522D7AE21EC6BDA006646C5 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		C562077021E9CB0B00C22F43 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		C57177812211258700E351DD /* MainTableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableRouter.swift; sourceTree = "<group>"; };
 		C57177842211395E00E351DD /* MainTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCellViewModel.swift; sourceTree = "<group>"; };
 		C571778622113B6700E351DD /* MainTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCellModel.swift; sourceTree = "<group>"; };
+		C57177892211476A00E351DD /* MainTableCellModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableCellModelTests.swift; sourceTree = "<group>"; };
 		C57A88AD21E9C07A00A2B035 /* ReminderiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57A88B021E9C07A00A2B035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C57A88B221E9C07A00A2B035 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -128,15 +128,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C522D7A021EC6594006646C5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C522D7A121EC65E9006646C5 /* MainTableViewCellEntityTests.swift */,
-			);
-			name = Model;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		C562077621EB3C3400C22F43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +219,14 @@
 			path = Transitioner;
 			sourceTree = "<group>";
 		};
+		C57177882211476A00E351DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C57177892211476A00E351DD /* MainTableCellModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C57A88A421E9C07A00A2B035 = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +267,7 @@
 		C57A88C421E9C07C00A2B035 /* ReminderiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				C522D7A021EC6594006646C5 /* Model */,
+				C57177882211476A00E351DD /* Model */,
 				C57A88C721E9C07C00A2B035 /* Info.plist */,
 			);
 			path = ReminderiOSTests;
@@ -481,7 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C522D7A221EC65E9006646C5 /* MainTableViewCellEntityTests.swift in Sources */,
+				C571778A2211476B00E351DD /* MainTableCellModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

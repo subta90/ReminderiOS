@@ -10,13 +10,13 @@ import Nimble
 import Quick
 @testable import ReminderiOS
 
-class MainTableViewCellEntityTests: QuickSpec {
+class MainTableCellModelTests: QuickSpec {
     
     override func spec() {
         describe("setMessage") {
             it("messageの初期値は空文字") {
-                let entity = MainTableViewCellEntity()
-                expect(entity.message).to(beEmpty())
+                let model = MainTableCellModel()
+                expect(model.message).to(beEmpty())
             }
         }
     }
