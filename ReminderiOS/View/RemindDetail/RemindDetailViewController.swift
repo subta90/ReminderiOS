@@ -2,7 +2,7 @@
 //  RemindDetailViewController.swift
 //  ReminderiOS
 //
-//  Created by Shinji Muto on 2019/01/13.
+//  Created by subta on 2019/01/13.
 //  Copyright © 2019 subta90. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class RemindDetailViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var viewModel = RemindDetaialViewControllerViewModel(model: Driver.of(MainTableViewCellEntity(message: "")))
+    var viewModel = RemindDetaialViewControllerViewModel(model: Driver.of(MainTableCellModel(message: "")))
     
     private let disposeBag = DisposeBag()
     
@@ -31,7 +31,7 @@ class RemindDetailViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func beginObserveToModel(model: Driver<MainTableViewCellEntity>) {
+    func beginObserveToModel(model: Driver<MainTableCellModelProtocol>) {
         self.viewModel.model = model
     }
 }
@@ -55,9 +55,6 @@ extension RemindDetailViewController: UITableViewDataSource {
         default:
             // TODO: けす
             let cell = tableView.dequeueReusableCell(withIdentifier: messageCellIdentifier) as! RemindDetailViewMessageCell
-            cell.messageRelay.subscribe( { [ unowned self ] message in
-            })
-                .disposed(by: disposeBag)
             return cell
         }
     }

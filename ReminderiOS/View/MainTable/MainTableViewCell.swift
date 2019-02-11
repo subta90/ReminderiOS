@@ -2,7 +2,7 @@
 //  MainTableViewCell.swift
 //  ReminderiOS
 //
-//  Created by Shinji Muto on 2019/01/12.
+//  Created by subta on 2019/01/12.
 //  Copyright © 2019 subta90. All rights reserved.
 //
 
@@ -18,17 +18,24 @@ class MainTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var remindInfoButton: UIButton!
     
-    let infoButtonTappedRelay = PublishRelay<MainTableViewCellEntity>()
-    let outOfFocusRelay = PublishRelay<MainTableViewCellEntity>()
+    private let infoButtonTappedRelay = PublishRelay<MainTableCellModelProtocol>()
+    private let outOfFocusRelay = PublishRelay<MainTableCellModelProtocol>()
     
-    let model = MainTableViewCellModel()
+    private let model: MainTableCellModelProtocol = MainTableCellModel()
     
-    private lazy var viewModel = MainTableViewCellViewModel(inputText: remindInputField.rx.text.orEmpty.asObservable(), model: model)
+    private lazy var viewModel = MainTableCellViewModel(inputText: remindInputField.rx.text.orEmpty.asObservable(), model: model)
     
     private let disposeBag = DisposeBag()
     
-    // MARK: Life Cycle
+    var infoButtonTappedObservable: Observable<MainTableCellModelProtocol> {
+        return infoButtonTappedRelay.asObservable()
+    }
     
+    var outOfFocusObservable: Observable<MainTableCellModelProtocol> {
+        return outOfFocusRelay.asObservable()
+    }
+    
+    // MARK: Life Cycle
     override func awakeFromNib() {
         
         viewModel.isInfoButtonHidden.asDriver(onErrorJustReturn: false)
@@ -39,15 +46,15 @@ class MainTableViewCell: UITableViewCell {
         
         remindInputField.rx.controlEvent(.editingDidEnd).asDriver()
             .drive(onNext: { [ unowned self ] text in
-                let entity = MainTableViewCellEntity(message: self.remindInputField.text)
-                self.outOfFocusRelay.accept(entity)
+                let model = MainTableCellModel(message: self.remindInputField.text)
+                self.outOfFocusRelay.accept(model)
             })
             .disposed(by: disposeBag)
         
         remindInfoButton.rx.tap.asDriver()
             .drive(onNext: { [ unowned self ] _ in
-                let entity = MainTableViewCellEntity(message: self.remindInputField.text)
-                self.infoButtonTappedRelay.accept(entity)
+                let model = MainTableCellModel(message: self.remindInputField.text)
+                self.infoButtonTappedRelay.accept(model)
             })
             .disposed(by: disposeBag)
     }

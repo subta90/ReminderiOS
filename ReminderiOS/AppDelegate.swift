@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ReminderiOS
 //
-//  Created by Shinji Muto on 2019/01/12.
+//  Created by subta on 2019/01/12.
 //  Copyright © 2019 subta90. All rights reserved.
 //
 

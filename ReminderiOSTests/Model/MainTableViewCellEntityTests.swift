@@ -2,7 +2,7 @@
 //  MainTableViewCellEntityTests.swift
 //  ReminderiOSTests
 //
-//  Created by Shinji Muto on 2019/01/14.
+//  Created by subta on 2019/01/14.
 //  Copyright © 2019 subta90. All rights reserved.
 //
 

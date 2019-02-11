@@ -2,7 +2,7 @@
 //  RemindDetailViewMessageCellViewModel.swift
 //  ReminderiOS
 //
-//  Created by Shinji Muto on 2019/02/09.
+//  Created by subta on 2019/02/09.
 //  Copyright © 2019 subta90. All rights reserved.
 //
 
