@@ -11,10 +11,12 @@ import RxCocoa
 import RxSwift
 
 protocol MainTableViewProtocol: AnyObject, Transitioner where Self: UIViewController {
-    
+
+    func updateCellModel(indexPath: IndexPath, model: MainTableCellModelProtocol)
+
 }
 
-class MainTableViewController: UIViewController {
+class MainTableViewController: UIViewController, MainTableViewProtocol {
     
     // MARK: Constants
     let cellIdentifier = "MainTableViewCell"
@@ -34,13 +36,15 @@ class MainTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        tableView.delegate = self
         tableView.dataSource = self
     }
-}
-
-extension MainTableViewController: UITableViewDelegate {
-
+    
+    func updateCellModel(indexPath: IndexPath, model: MainTableCellModelProtocol) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell else {
+            return
+        }
+        cell.remindInputField.text = model.message
+    }
 }
 
 extension MainTableViewController: UITableViewDataSource {
@@ -52,14 +56,10 @@ extension MainTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainTableViewCell
         
         cell.infoButtonTappedObservable.subscribe( { [ unowned self ] value in
-            self.viewModel.didTappedInfoButton(message: value.element?.message)
+            self.viewModel.didTappedInfoButton(indexPath: indexPath, message: value.element?.message)
         })
         .disposed(by: disposeBag)
         
         return cell
     }
-}
-
-extension MainTableViewController: MainTableViewProtocol {
-    
 }

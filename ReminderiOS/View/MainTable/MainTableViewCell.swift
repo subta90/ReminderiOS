@@ -21,7 +21,7 @@ class MainTableViewCell: UITableViewCell {
     private let infoButtonTappedRelay = PublishRelay<MainTableCellModelProtocol>()
     private let outOfFocusRelay = PublishRelay<MainTableCellModelProtocol>()
     
-    private let model: MainTableCellModelProtocol = MainTableCellModel()
+    var model: MainTableCellModelProtocol = MainTableCellModel()
     
     private lazy var viewModel = MainTableCellViewModel(inputText: remindInputField.rx.text.orEmpty.asObservable(), model: model)
     

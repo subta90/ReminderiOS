@@ -14,14 +14,19 @@ private enum CellType: Int {
     case message = 0
 }
 
-class RemindDetailViewController: UIViewController {
+protocol RemindDetailViewProtocol: AnyObject, Transitioner where Self: UIViewController {
+    
+}
+
+
+class RemindDetailViewController: UIViewController, RemindDetailViewProtocol {
     
     // MARK: Constants
     let messageCellIdentifier = "RemindDetailViewMessageCell"
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var viewModel = RemindDetailViewModel(model: Driver.of(RemindDetailModel(message: "")))
+    var viewModel: RemindDetailViewModel?
     
     private let modelChangedRelay = PublishRelay<RemindDetailModelProtocol>()
     
@@ -37,10 +42,6 @@ class RemindDetailViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func beginObserveToModel(message: String?) {
-        let model = RemindDetailModel(message: message)
-        self.viewModel = RemindDetailViewModel(model: Driver.of(model))
-    }
 }
 
 extension RemindDetailViewController: UITableViewDataSource {
@@ -53,14 +54,15 @@ extension RemindDetailViewController: UITableViewDataSource {
         case CellType.message.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: messageCellIdentifier) as! RemindDetailViewMessageCell
             
-            viewModel.model.drive( onNext: { model in
+            viewModel?.model.drive( onNext: { model in
                 cell.messageTextField.text = model.message
             })
                 .disposed(by: disposeBag)
             
             cell.messageObservable.subscribe({ [ unowned self ] value in
                 let model = RemindDetailModel(message: value.element!)
-                self.viewModel = RemindDetailViewModel(model: Driver.of(model))
+                self.viewModel?.model = Driver.of(model)
+                self.modelChangedRelay.accept(model)
             })
             .disposed(by: disposeBag)
             
@@ -71,6 +73,5 @@ extension RemindDetailViewController: UITableViewDataSource {
             return cell
         }
     }
-    
-    
 }
+

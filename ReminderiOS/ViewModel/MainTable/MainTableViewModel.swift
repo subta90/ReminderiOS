@@ -14,7 +14,7 @@ protocol MainTableViewModelProtocol {
    
     var router: MainTableRouterProtocol { get }
     
-    func didTappedInfoButton(message: String?)
+    func didTappedInfoButton(indexPath: IndexPath, message: String?)
 }
 
 final class MainTableViewModel: MainTableViewModelProtocol {
@@ -28,8 +28,8 @@ final class MainTableViewModel: MainTableViewModelProtocol {
     
     // MARK: Transition
     
-    func didTappedInfoButton(message: String?) {
-        router.transitionToRemindDetail(message: message)
+    func didTappedInfoButton(indexPath: IndexPath, message: String?) {
+        router.transitionToRemindDetail(indexPath: indexPath, message: message)
     }
     
     
