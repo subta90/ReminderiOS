@@ -11,8 +11,6 @@ import RxSwift
 
 protocol MainTableCellModelProtocol {
     var message: String? { get }
-    
-    func isInfoButtonHidden(text: String) -> Bool
 }
 
 final class MainTableCellModel: MainTableCellModelProtocol {
@@ -27,7 +25,4 @@ final class MainTableCellModel: MainTableCellModelProtocol {
         self.message = message
     }
     
-    func isInfoButtonHidden(text: String) -> Bool {
-        return text.count == 0
-    }
 }

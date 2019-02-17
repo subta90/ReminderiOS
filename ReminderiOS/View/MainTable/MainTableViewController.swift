@@ -36,30 +36,23 @@ class MainTableViewController: UIViewController, MainTableViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        tableView.dataSource = self
+        
+        viewModel.itemsObservable.bind(to: tableView.rx.items) { [ unowned self ] tableView, row, element in
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! MainTableViewCell
+            cell.updateCell(text: element.message!)
+            cell.infoButtonTappedObservable.subscribe( { [ unowned self ] value in
+                self.viewModel.didTappedInfoButton(indexPath: tableView.indexPath(for: cell)!, message: value.element?.message)
+            })
+            .disposed(by: self.disposeBag)
+            return cell
+        }
+        .disposed(by: disposeBag)
     }
     
     func updateCellModel(indexPath: IndexPath, model: MainTableCellModelProtocol) {
         guard let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell else {
             return
         }
-        cell.remindInputField.text = model.message
-    }
-}
-
-extension MainTableViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MainTableViewCell
-        
-        cell.infoButtonTappedObservable.subscribe( { [ unowned self ] value in
-            self.viewModel.didTappedInfoButton(indexPath: indexPath, message: value.element?.message)
-        })
-        .disposed(by: disposeBag)
-        
-        return cell
+        cell.updateCell(text: model.message!)
     }
 }

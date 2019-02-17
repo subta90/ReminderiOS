@@ -16,7 +16,7 @@ class MainTableViewCell: UITableViewCell {
     
     @IBOutlet weak var remindInputField: UITextField!
     
-    @IBOutlet private weak var remindInfoButton: UIButton!
+    @IBOutlet weak var remindInfoButton: UIButton!
     
     private let infoButtonTappedRelay = PublishRelay<MainTableCellModelProtocol>()
     private let outOfFocusRelay = PublishRelay<MainTableCellModelProtocol>()
@@ -38,11 +38,9 @@ class MainTableViewCell: UITableViewCell {
     // MARK: Life Cycle
     override func awakeFromNib() {
         
-        viewModel.isInfoButtonHidden.asDriver(onErrorJustReturn: false)
-            .drive(onNext: { [ unowned self ] hidden in
-                self.remindInfoButton.isHidden = hidden
-            })
-        .disposed(by: disposeBag)
+        viewModel.inputText.map { $0.count  == 0 }
+            .bind(to: self.remindInfoButton.rx.isHidden)
+            .disposed(by: disposeBag)
         
         remindInputField.rx.controlEvent(.editingDidEnd).asDriver()
             .drive(onNext: { [ unowned self ] text in
@@ -57,6 +55,11 @@ class MainTableViewCell: UITableViewCell {
                 self.infoButtonTappedRelay.accept(model)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func updateCell(text: String) {
+        remindInputField.text = text
+        remindInputField.sendActions(for: .valueChanged)
     }
     
 }

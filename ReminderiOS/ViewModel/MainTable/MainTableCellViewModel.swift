@@ -12,22 +12,15 @@ import RxSwift
 
 protocol MainTableCellViewModelProtocol {
     var inputText: Observable<String> { get }
-    var isInfoButtonHidden: Observable<Bool> { get }
 }
 
 final class MainTableCellViewModel: MainTableCellViewModelProtocol {
     
     let inputText: Observable<String>
     
-    let isInfoButtonHidden: Observable<Bool>
-    
     init(inputText: Observable<String>, model: MainTableCellModelProtocol) {
         
         self.inputText = inputText
-        
-        self.isInfoButtonHidden = inputText.map { text in
-            return model.isInfoButtonHidden(text: text)
-        }
-        
+
     }
 }

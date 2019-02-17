@@ -13,6 +13,8 @@ import RxSwift
 protocol MainTableViewModelProtocol {
    
     var router: MainTableRouterProtocol { get }
+    var items: [MainTableCellModel] { get set }
+    var itemsObservable: Observable<[MainTableCellModel]> { get }
     
     func didTappedInfoButton(indexPath: IndexPath, message: String?)
 }
@@ -20,6 +22,16 @@ protocol MainTableViewModelProtocol {
 final class MainTableViewModel: MainTableViewModelProtocol {
     
     let router: MainTableRouterProtocol
+    
+    var items: [MainTableCellModel] = [
+        MainTableCellModel(message: "first"),
+        MainTableCellModel(message: "second"),
+        MainTableCellModel(message: "third")
+    ]
+    
+    var itemsObservable: Observable<[MainTableCellModel]> {
+        return Observable.of(items)
+    }
     
     // MARK: Life Cycle
     init(router: MainTableRouterProtocol) {
@@ -31,6 +43,4 @@ final class MainTableViewModel: MainTableViewModelProtocol {
     func didTappedInfoButton(indexPath: IndexPath, message: String?) {
         router.transitionToRemindDetail(indexPath: indexPath, message: message)
     }
-    
-    
 }
